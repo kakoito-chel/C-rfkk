@@ -2,8 +2,6 @@
 #include <cstring>
 
 using namespace std;
-
-// Структура книги
 struct Book {
     char author[50];
     char title[50];
@@ -17,10 +15,8 @@ int main() {
     cin >> n;
     cin.ignore();
 
-    // Динамический массив книг
     Book* books = new Book[n];
 
-    // Ввод данных
     for (int i = 0; i < n; i++) {
         cout << "\nКнига " << i + 1 << endl;
 
@@ -32,7 +28,7 @@ int main() {
 
         cout << "Издательство: ";
         cin.getline(books[i].publisher, 50);
-
+        
         cout << "Тираж: ";
         cin >> books[i].circulation;
         cin.ignore();
@@ -47,7 +43,7 @@ int main() {
     cout << "Введите минимальный тираж: ";
     cin >> minCirculation;
 
-    // Подсчёт подходящих книг
+
     int count = 0;
     for (int i = 0; i < n; i++) {
         if (strcmp(books[i].publisher, searchPublisher) == 0 &&
@@ -56,7 +52,8 @@ int main() {
         }
     }
 
-    // Динамический массив результата
+
+
     Book* result = new Book[count];
     int k = 0;
 
@@ -67,7 +64,6 @@ int main() {
         }
     }
 
-    // Вывод результата
     cout << "\n=== Найденные книги ===\n";
 
     if (count == 0) {
